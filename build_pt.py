@@ -43,6 +43,11 @@ def _lessons():
     return json.load(open(p)) if os.path.exists(p) else {}
 
 
+def _taxonomy():
+    p = os.path.join(ROOT, "knowledge", "taxonomy.json")
+    return json.load(open(p)) if os.path.exists(p) else {}
+
+
 def build():
     kb.init_db()
     cache = kb.rebuild_cache()          # make sure cache + lessons are current
@@ -99,6 +104,7 @@ def build():
         "confusions": cache.get("confusions", []),
         "lessons": _lessons(),
         "severity_rules": A.SEVERITY_RULES,
+        "taxonomy": _taxonomy(),
         # exact geometry so masks render identically from the checkpoint
         "geometry": geometry,
     }

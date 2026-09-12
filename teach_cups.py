@@ -13,25 +13,14 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from defect_inspector import kb
 from defect_inspector import features as F
+import taxonomy as TAX
 
 AES2_DIR = r"C:\workspace-ai\AES2-20260830T112553Z-1-001\AES2"
 REVIEW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "aes2_review.json")
 
-SEVERITY = [
-    (5, ["cut", "chip", "missing material", "torn", "crack", "broken"]),
-    (4, ["deformation", "dent", "out-of-round", "out of round", "pinched", "bent"]),
-    (3, ["notch", "nick", "serration", "incomplete embossing"]),
-    (2, ["rust", "discolor", "electroplat", "black mark", "line defect", "scratch"]),
-    (1, ["dark mark", "stain", "paint"]),
-]
-
 
 def priority(cat):
-    c = cat.lower()
-    for score, kws in SEVERITY:
-        if any(k in c for k in kws):
-            return score
-    return 2
+    return TAX.priority(cat)
 
 
 def primary_label(entry):
@@ -71,6 +60,16 @@ def existing_names(part):
 def main():
     kb.init_db()
     review = json.load(open(REVIEW))
+
+    # Central-taxonomy guard: every category in the review must be a known
+    # defect defined in knowledge/taxonomy.json.
+    all_cats = [d.get("category", "") for e in review.values() for d in e.get("defects", [])]
+    ok, unknown = TAX.validate(all_cats)
+    if not ok:
+        print("ERROR: categories not in knowledge/taxonomy.json:",
+              sorted(set(unknown)))
+        print("Add them to taxonomy.json (or fix the spelling) and re-run.")
+        sys.exit(1)
 
     added, skipped = 0, 0
     have = {}

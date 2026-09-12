@@ -8,6 +8,7 @@ Two annotation sources:
 Output: annotated JPGs + per-image JSON + a summary.json, in OUT_DIR.
 """
 import os, glob, re, json, cv2, numpy as np
+import taxonomy as TAX
 
 try:
     import config
@@ -17,18 +18,12 @@ except Exception:
     AES = os.environ.get("QMS_AES_DIR", r"C:\workspace-ai\AES2-20260830T112553Z-1-001\AES2")
     OUT = AES + "_annotated"
 LABEL_DIRS = [r"dataset\train\labels", r"dataset\valid\labels"]
+# Dataset (YOLO GT) class order for link-3hole labels. Defect names + colors +
+# severity are centrally controlled in knowledge/taxonomy.json (via taxonomy.py).
 CLASSES = ['black mark after electroplating', 'electroplating defect',
            'incomplete embossing', 'line defect', 'serration']
-# BGR colors per category (plus manual-only categories added dynamically)
-COLORS = {
-    'black mark after electroplating': (40, 40, 220),
-    'electroplating defect':           (0, 165, 255),
-    'incomplete embossing':            (255, 90, 0),
-    'line defect':                     (0, 220, 255),
-    'serration':                       (200, 0, 200),
-    'OK':                              (0, 180, 0),
-}
-FALLBACK = (0, 0, 255)
+COLORS = TAX.colors_map()
+FALLBACK = TAX.FALLBACK_COLOR
 
 
 def base(fn):
@@ -58,25 +53,15 @@ def load_gt():
 
 
 def color_for(name):
-    return COLORS.get(name, FALLBACK)
+    return TAX.color_for(name)
 
 
-# Severity ranking: higher = more critical. Keyword-matched against the category.
-SEVERITY_RULES = [
-    (5, ("cut", "chip", "missing material", "torn", "crack", "broken")),
-    (4, ("deformation", "dent", "out-of-round", "pinched", "bent")),
-    (3, ("notch", "nick", "serration", "incomplete embossing")),
-    (2, ("rust", "discolor", "electroplat", "black mark", "line defect", "scratch")),
-    (1, ("dark mark", "stain", "paint")),
-]
+# Severity is centrally controlled in knowledge/taxonomy.json (via taxonomy.py).
+SEVERITY_RULES = TAX.severity_rules()
 
 
 def defect_priority(category):
-    c = (category or "").lower()
-    for score, kws in SEVERITY_RULES:
-        if any(k in c for k in kws):
-            return score
-    return 2  # default mid severity for unrecognised real defects
+    return TAX.priority(category)
 
 
 def sort_by_priority(dets):

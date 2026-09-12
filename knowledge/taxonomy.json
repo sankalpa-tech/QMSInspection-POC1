@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "note": "SINGLE SOURCE OF TRUTH for parts + defect taxonomy. Every module (annotate_aes2, teach_cups, build_pt, run_pt) reads names / severity / colors from here via taxonomy.py. To add or rename a defect, edit ONLY this file, then run: python qms.py build.",
+
+  "default_part": "Bearing Cup",
+  "parts": ["Bearing Cup", "link-3hole"],
+
+  "default_severity": 2,
+
+  "defects": {
+    "Cut / Chip": {
+      "severity": 5,
+      "color": [0, 0, 255],
+      "aliases": ["cut", "chip", "chipped", "missing material", "torn", "crack", "broken"],
+      "description": "A bite of material missing from a rolled edge - the outline steps inward or looks torn/faceted instead of a smooth continuous curve."
+    },
+    "Dent": {
+      "severity": 4,
+      "color": [0, 140, 255],
+      "aliases": ["dent", "deformation on inner rim", "notch / dent on outer flange"],
+      "description": "A localised inward deformation of the rim or flange face that does not remove material."
+    },
+    "Deformation": {
+      "severity": 4,
+      "color": [0, 90, 255],
+      "aliases": ["deformation", "out-of-round", "out of round", "pinched", "bent", "ovalised"],
+      "description": "Central bore is not a clean circle - one side pinched, dented inward or ovalised (out-of-round)."
+    },
+    "Notch": {
+      "severity": 3,
+      "color": [0, 220, 255],
+      "aliases": ["notch", "nick", "serration", "incomplete embossing", "square tab"],
+      "description": "A small raised nub, square tab, or bite/indentation breaking the smooth curve of an edge or the inner collar rim."
+    },
+    "Rust": {
+      "severity": 2,
+      "color": [30, 90, 160],
+      "aliases": ["rust", "discolor", "discoloration", "electroplat", "black mark", "line defect", "scratch"],
+      "description": "Brown/orange mottled corrosion or discoloration on the drawn wall or face."
+    },
+    "Stain": {
+      "severity": 1,
+      "color": [120, 120, 120],
+      "aliases": ["dark mark", "stain", "smudge", "burn"],
+      "description": "Discrete dark/black smudge or burn on the metal face; darker than surrounding metal and NOT a shadow."
+    },
+    "Reject Paint Mark": {
+      "severity": 1,
+      "color": [200, 0, 200],
+      "aliases": ["paint", "reject paint", "reject-marking"],
+      "description": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Secondary marker - hunt the adjacent real defect."
+    },
+    "OK": {
+      "severity": 0,
+      "color": [0, 180, 0],
+      "aliases": ["ok", "pass", "no defect"],
+      "description": "Smooth continuous outer flange, unbroken inner rim curve, round bore, no discrete dark mark, no missing material."
+    }
+  }
+}
