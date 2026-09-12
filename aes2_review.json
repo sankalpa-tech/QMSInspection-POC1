@@ -1,0 +1,309 @@
+{
+  "IMG20260824161444": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "dent / deformation on inner rim",
+        "seg": "edge",
+        "bbox": [
+          0.4,
+          0.3,
+          0.09,
+          0.06
+        ],
+        "location": "top of inner collar rim (~12 o'clock)",
+        "reason": "Eye-shaped dent/fold deforming the inner collar rim edge."
+      }
+    ]
+  },
+  "IMG20260824161503": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "notch / nick on flange edge",
+        "seg": "edge",
+        "bbox": [
+          0.685,
+          0.325,
+          0.05,
+          0.05
+        ],
+        "location": "right outer flange edge (~3 o'clock)",
+        "reason": "A small radial notch/nick cut into the outer flange edge."
+      }
+    ]
+  },
+  "IMG20260824161530": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "notch / nick on inner rim",
+        "bbox": [
+          0.646,
+          0.3,
+          0.042,
+          0.03
+        ],
+        "location": "inner collar rim, upper-right (~2 o'clock)",
+        "reason": "A small raised nub/notch protrudes inward from the inner collar rim edge."
+      }
+    ]
+  },
+  "IMG20260824161547": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "notch / nick on inner rim",
+        "seg": "edge",
+        "bbox": [
+          0.41,
+          0.405,
+          0.045,
+          0.05
+        ],
+        "location": "top of inner collar rim (~12 o'clock)",
+        "reason": "A small notch/nick bump interrupts the inner collar rim edge."
+      }
+    ]
+  },
+  "IMG20260824161557": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "notch / nick on inner rim",
+        "seg": "edge",
+        "bbox": [
+          0.455,
+          0.355,
+          0.045,
+          0.045
+        ],
+        "location": "top of inner collar rim (~12 o'clock)",
+        "reason": "A raised square tab/nick interrupts the inner collar rim edge."
+      }
+    ]
+  },
+  "IMG20260824161920": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "deformation (out-of-round / pinched bore)",
+        "seg": "edge",
+        "bbox": [
+          0.33,
+          0.5,
+          0.28,
+          0.2
+        ],
+        "location": "lower portion of the inner bore",
+        "reason": "Inner bore is out-of-round / pinched (non-circular), flattened to a point along its lower edge."
+      },
+      {
+        "category": "reject paint mark on inner wall",
+        "seg": "red_paint",
+        "bbox": [
+          0.24,
+          0.24,
+          0.14,
+          0.28
+        ],
+        "location": "inner conical wall, upper-left (~10-11 o'clock)",
+        "reason": "Red operator reject-marking paint smeared down the inner conical wall, indicating the part was flagged."
+      }
+    ]
+  },
+  "IMG20260824162037": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "dark mark / stain",
+        "seg": "dark",
+        "bbox": [
+          0.27,
+          0.605,
+          0.15,
+          0.075
+        ],
+        "location": "domed face of the lower cup, upper-left",
+        "reason": "Dark discoloured stain blob on the drawn face of the lower cup."
+      }
+    ]
+  },
+  "IMG20260824162142": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "reject paint mark on bottom flange",
+        "seg": "red_paint",
+        "bbox": [
+          0.39,
+          0.66,
+          0.17,
+          0.07
+        ],
+        "location": "bottom outer flange / lip of the cup (~6 o'clock)",
+        "reason": "Red operator reject-marking paint dashes on the bottom flange, indicating the part was flagged."
+      },
+      {
+        "category": "dark mark / stain on bottom flange",
+        "seg": "dark",
+        "bbox": [
+          0.4,
+          0.685,
+          0.17,
+          0.075
+        ],
+        "location": "raised oval boss on the bottom flange (~6 o'clock)",
+        "reason": "Dark black-toned discoloration/mark on the raised oval boss of the bottom flange."
+      }
+    ]
+  },
+  "IMG20260824162258": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "notch / dent on outer flange",
+        "seg": "edge",
+        "bbox": [
+          0.58,
+          0.6,
+          0.14,
+          0.13
+        ],
+        "location": "lower-right outer flange edge",
+        "reason": "A notch/dent breaks the outer flange edge (with a red reject-paint smear alongside), indicating the part was flagged."
+      }
+    ]
+  },
+  "IMG20260824162340": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "cut / chipped flange edge (missing material)",
+        "bbox": [
+          0.66,
+          0.69,
+          0.062,
+          0.075
+        ],
+        "location": "outer rolled flange silhouette edge, lower-right (~4-5 o'clock)",
+        "reason": "The outer flange silhouette steps/facets inward - a piece of the rolled edge is cut/missing, breaking the smooth continuous outer curve."
+      },
+      {
+        "category": "reject paint mark",
+        "seg": "red_paint",
+        "bbox": [
+          0.53,
+          0.73,
+          0.1,
+          0.06
+        ],
+        "location": "outer flange band, lower-left of the cut (~5 o'clock)",
+        "reason": "Red operator reject-marking paint smeared on the flange band beside the cut, indicating the part was flagged."
+      }
+    ]
+  },
+  "IMG20260824162425": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "reject paint mark / rough inner-bore edge",
+        "seg": "red_paint",
+        "bbox": [
+          0.31,
+          0.31,
+          0.15,
+          0.08
+        ],
+        "location": "top flange near the pierced inner-bore edge (~12 o'clock)",
+        "reason": "Red reject-marking paint at the top flange beside a rough/torn pierced inner-bore edge, indicating the part was flagged."
+      },
+      {
+        "category": "cut / notch on outer flange edge",
+        "seg": "edge",
+        "bbox": [
+          0.37,
+          0.275,
+          0.15,
+          0.055
+        ],
+        "location": "top outer flange edge (~12 o'clock)",
+        "reason": "A step/notch is cut into the outer flange edge, breaking the smooth rolled edge profile (missing material)."
+      }
+    ]
+  },
+  "IMG20260824162618": {
+    "part": "cup-collar",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824162707": {
+    "part": "cup-collar",
+    "result": "DEFECT",
+    "defects": [
+      {
+        "category": "rust / discoloration",
+        "seg": "rust",
+        "bbox": [
+          0.28,
+          0.48,
+          0.36,
+          0.3
+        ],
+        "location": "front outer (conical) wall",
+        "reason": "Brown/rust-toned mottled discoloration on the outer drawn wall."
+      }
+    ]
+  },
+  "IMG20260824162751": {
+    "part": "cup-collar",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824162819": {
+    "part": "cup-collar",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824162900": {
+    "part": "cup-collar",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824163000": {
+    "part": "cup-collar",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824163031": {
+    "part": "cup-collar",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824163907": {
+    "part": "link-3hole",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824164631": {
+    "part": "link-3hole",
+    "result": "OK",
+    "defects": []
+  },
+  "IMG20260824164704": {
+    "part": "link-3hole",
+    "result": "OK",
+    "defects": []
+  }
+}

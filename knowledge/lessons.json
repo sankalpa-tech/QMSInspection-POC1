@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "updated_at": "2026-09-06T21:45:00",
+  "note": "Durable lessons learned from human corrections. Loaded into defect_kb.json on every rebuild so inspection never loses them. Covers the free-form cup-collar part (deep-drawn collar/cup) which has NO ground-truth polygons.",
+
+  "parts": {
+    "cup-collar": {
+      "description": "Deep-drawn metal collar / cup: outer flange (rolled edge), a stepped inner rim/collar, and a central bore. Photographed top-down (rim visible as a ring) or tilted (side view, rim foreshortened).",
+      "signatures": {
+        "notch / nick on inner rim": "A small raised nub or a bite/indentation breaking the smooth curve of the inner collar rim edge. Localised (a few mm). NOT the long bright rim highlight itself.",
+        "cut / chipped flange edge (missing material)": "A bite of material missing from the outer rolled flange edge - the edge outline steps inward or looks torn/faceted instead of a smooth continuous curve.",
+        "dark mark / stain on bottom flange": "Discrete dark/black smudge or burn sitting on top of the flange face; darker than the surrounding metal and NOT the shadow cast by the rim.",
+        "reject paint mark / rough flange edge": "Deliberate red/pink inspection paint OR a locally rough, pitted, torn flange edge.",
+        "pinched / out-of-round bore": "Central bore is not a clean circle - one side pinched, dented inward or ovalised.",
+        "square tab on inner rim (12 o'clock)": "A square/blocky tab interrupting the inner rim near the 12 o'clock position. CONFIRMED BY USER AS A DEFECT - flag it on every cup where it appears.",
+        "OK": "Smooth continuous outer flange, unbroken inner rim curve, round bore, no discrete dark mark, no missing material."
+      },
+      "confirmed_rulings": [
+        "The square tab at ~12 o'clock on the inner rim IS a defect (not a by-design locating tab). Flag it every time.",
+        "Tilted / side-view cups whose inner rim is smooth and not clearly visible (e.g. 162751, 162819, 162618, 162900, 163000, 163031) are OK - do NOT paint a speculative box; a false mark is worse than none.",
+        "Scan the ENTIRE part for EVERY defect type seen anywhere in the set - full outer edge, inner rim, both flanges and faces. Never stop at the first finding.",
+        "A defect type seen on one cup (e.g. flange cut on 162340) must be looked for on ALL cups - cross-apply learned defect types.",
+        "Capture MULTIPLE defects per image and rank them; mark the highest-severity one as PRIMARY."
+      ],
+      "severity_priority": {
+        "P5": ["cut", "chip", "missing material", "torn", "crack", "broken"],
+        "P4": ["deformation", "dent", "out-of-round", "pinched", "bent"],
+        "P3": ["notch", "nick", "serration", "incomplete embossing"],
+        "P2": ["rust", "discolor", "electroplat", "black mark", "line defect", "scratch"],
+        "P1": ["dark mark", "stain", "paint"],
+        "default": 2
+      }
+    }
+  },
+
+  "segmentation_gotchas": [
+    "edge/Canny segmentation on a small feature that sits ON a bright curved rim will LOCK ONTO THE RIM and trace a long arc instead of the feature. For small notches/nicks on the inner rim, use a TINY tight box and DROP edge-seg (draw a plain rectangle). Root cause of repeated 'mask too big / wrong spot' complaints.",
+    "dark segmentation grabs the shadowed rim, not the actual stain, when the box is loose. Shrink the box below/away from the rim so the stain is the darkest pixel region.",
+    "Always place boxes tiny and tight on the actual defect, then verify each output at full zoom before reporting."
+  ],
+
+  "reject_paint_rule": {
+    "principle": "Red/pink reject paint is the operator's MARK showing WHERE they saw a problem - it is NOT itself the primary defect. When paint is present, HUNT the adjacent edge/geometry for the real defect (a cut, notch, dent, missing material) and mark THAT as primary; mark the paint only as a low-severity secondary.",
+    "learned_from": "IMG20260824162340 - I originally boxed the red paint + inner rim (most eye-catching) and edge-seg traced those instead of the real cut on the OUTER silhouette edge nearby.",
+    "scan_habit": "Trace the OUTER silhouette outline of the flange for steps/facets/kinks (missing material) - these are low-contrast against the smooth curve and easy to miss. Do not anchor only on bright bands or the paint."
+  },
+
+  "confirmed_defects_by_image": {
+    "IMG20260824161530": ["notch / nick on inner rim (small raised nub, ~2 o'clock, tight box no edge-seg)"],
+    "IMG20260824161547": ["notch / nick on inner rim (~12 o'clock)"],
+    "IMG20260824162142": ["reject paint mark / rough flange edge", "dark mark / stain on bottom flange (missed first pass - dark boss mark)"],
+    "IMG20260824162258": ["notch / dent on outer flange"],
+    "IMG20260824162340": ["cut / chipped flange edge on OUTER silhouette (missing material, ~4-5 o'clock, tight box no edge-seg)", "reject paint mark (secondary, marks where inspector flagged)"],
+    "IMG20260824162425": ["cut / notch on top outer flange edge (PRIMARY P5)", "reject paint mark"],
+    "IMG20260824161920": ["pinched / out-of-round bore (PRIMARY P4)", "reject paint on inner wall"]
+  },
+
+  "recurring_mistakes": [
+    "Stopping at the first defect per image instead of scanning the whole part.",
+    "Not cross-applying a defect type seen on one image to the others.",
+    "Misreading shallow cuts / dark marks as the part's natural pressed shape.",
+    "Placing boxes from downscaled previews and not verifying at full resolution."
+  ]
+}

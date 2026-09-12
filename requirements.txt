@@ -1,0 +1,20 @@
+﻿# Core: instance segmentation (YOLO11-seg) training + inference
+ultralytics>=8.4.0
+opencv-python>=4.9.0
+numpy>=1.26.4
+pyyaml>=6.0
+pillow>=10.0.0
+matplotlib>=3.8.0
+
+# REST API for the self-learning defect inspector (defect_inspector/api.py)
+flask>=3.0.0
+
+# Packed checkpoint (models/best.pt) + local kNN inference
+torch>=2.1.0
+
+# Claude escalation on UNCERTAIN (optional; only needed for `qms.py inspect --escalate`)
+anthropic>=0.40.0
+
+# PyTorch installs automatically with ultralytics (CPU build by default).
+# For GPU training, install a CUDA build instead, e.g.:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121

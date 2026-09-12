@@ -1,0 +1,242 @@
+{
+  "version": 2,
+  "updated_at": "2026-09-12T15:47:21",
+  "categories": [
+    "black mark after electroplating",
+    "electroplating defect",
+    "incomplete embossing",
+    "line defect",
+    "serration",
+    "OK"
+  ],
+  "signatures": {
+    "black mark after electroplating": "Discrete dark/black smudge or spot sitting on top of otherwise normal plating; local darkening not explained by shadow.",
+    "electroplating defect": "Patch of abnormal/uneven plating - dull, matte or rough area where the finish did not deposit uniformly.",
+    "incomplete embossing": "Stamped 'VA' logo is partial, faint or missing strokes; low central relief contrast.",
+    "line defect": "A single distinct straight scratch/gouge line crossing the surface, standing out from the normal brushed micro-texture.",
+    "serration": "Jagged/toothed edge on a hole that should be smooth (NOT the by-design splined bottom hole).",
+    "OK": "Uniform finish, complete emboss, no discrete mark/line, smooth round hole edges."
+  },
+  "feature_keys": [
+    "area_frac",
+    "v_mean",
+    "v_std",
+    "s_mean",
+    "colorfulness",
+    "gloss_hi_frac",
+    "lap_var",
+    "max_line_frac",
+    "n_long_lines",
+    "dark_score",
+    "dark_area_frac",
+    "center_contrast",
+    "hole_rough"
+  ],
+  "norm": {
+    "mean": [
+      0.18738095238095237,
+      127.58380952380953,
+      46.308571428571426,
+      19.198571428571427,
+      8.543809523809525,
+      0.0004000000000000001,
+      402.7952380952381,
+      0.4103333333333334,
+      30.523809523809526,
+      46.13047619047619,
+      0.04662857142857142,
+      9.961904761904762,
+      53.84571428571429
+    ],
+    "std": [
+      0.07040563843118315,
+      21.498794091583143,
+      12.080328474607873,
+      14.718021116244918,
+      5.236977932785352,
+      0.0008182443458550811,
+      453.31679956494054,
+      0.20784273664144046,
+      36.597708811473886,
+      12.284517346640417,
+      0.02793542115490727,
+      3.051556385171686,
+      11.715511317999606
+    ]
+  },
+  "centroids": {
+    "OK": [
+      0.19552222222222224,
+      128.53333333333336,
+      38.284444444444446,
+      27.017777777777777,
+      10.856666666666667,
+      0.0007444444444444444,
+      540.9633333333334,
+      0.4505555555555556,
+      40.666666666666664,
+      44.211111111111116,
+      0.04183333333333334,
+      10.327777777777778,
+      53.80777777777777
+    ]
+  },
+  "counts": {
+    "black mark after electroplating": 0,
+    "electroplating defect": 0,
+    "incomplete embossing": 0,
+    "line defect": 0,
+    "serration": 0,
+    "OK": 9
+  },
+  "parts": {
+    "cup-collar": {
+      "dent / deformation on inner rim": 1,
+      "notch / nick on flange edge": 1,
+      "notch / nick on inner rim": 3,
+      "deformation (out-of-round / pinched bore)": 1,
+      "dark mark / stain": 1,
+      "reject paint mark on bottom flange": 1,
+      "notch / dent on outer flange": 1,
+      "cut / chipped flange edge (missing material)": 1,
+      "cut / notch on outer flange edge": 1,
+      "OK": 6,
+      "rust / discoloration": 1
+    },
+    "link-3hole": {
+      "OK": 3
+    }
+  },
+  "thresholds": {
+    "line_frac_strong": 0.45,
+    "line_frac_weak": 0.3,
+    "dark_score_strong": 30.0,
+    "dark_score_weak": 15.0,
+    "center_contrast_low": 6.0,
+    "hole_rough_high": 999.0,
+    "uncertain_below": 50,
+    "knn_k": 5,
+    "phash_recall_max": 6
+  },
+  "confusions": [
+    [
+      "electroplating defect",
+      "incomplete embossing",
+      "OK"
+    ],
+    [
+      "serration",
+      "splined-hole (design, not a defect)"
+    ],
+    [
+      "black mark after electroplating",
+      "shadow/plating tint"
+    ]
+  ],
+  "lessons": {
+    "version": 1,
+    "updated_at": "2026-09-06T21:45:00",
+    "note": "Durable lessons learned from human corrections. Loaded into defect_kb.json on every rebuild so inspection never loses them. Covers the free-form cup-collar part (deep-drawn collar/cup) which has NO ground-truth polygons.",
+    "parts": {
+      "cup-collar": {
+        "description": "Deep-drawn metal collar / cup: outer flange (rolled edge), a stepped inner rim/collar, and a central bore. Photographed top-down (rim visible as a ring) or tilted (side view, rim foreshortened).",
+        "signatures": {
+          "notch / nick on inner rim": "A small raised nub or a bite/indentation breaking the smooth curve of the inner collar rim edge. Localised (a few mm). NOT the long bright rim highlight itself.",
+          "cut / chipped flange edge (missing material)": "A bite of material missing from the outer rolled flange edge - the edge outline steps inward or looks torn/faceted instead of a smooth continuous curve.",
+          "dark mark / stain on bottom flange": "Discrete dark/black smudge or burn sitting on top of the flange face; darker than the surrounding metal and NOT the shadow cast by the rim.",
+          "reject paint mark / rough flange edge": "Deliberate red/pink inspection paint OR a locally rough, pitted, torn flange edge.",
+          "pinched / out-of-round bore": "Central bore is not a clean circle - one side pinched, dented inward or ovalised.",
+          "square tab on inner rim (12 o'clock)": "A square/blocky tab interrupting the inner rim near the 12 o'clock position. CONFIRMED BY USER AS A DEFECT - flag it on every cup where it appears.",
+          "OK": "Smooth continuous outer flange, unbroken inner rim curve, round bore, no discrete dark mark, no missing material."
+        },
+        "confirmed_rulings": [
+          "The square tab at ~12 o'clock on the inner rim IS a defect (not a by-design locating tab). Flag it every time.",
+          "Tilted / side-view cups whose inner rim is smooth and not clearly visible (e.g. 162751, 162819, 162618, 162900, 163000, 163031) are OK - do NOT paint a speculative box; a false mark is worse than none.",
+          "Scan the ENTIRE part for EVERY defect type seen anywhere in the set - full outer edge, inner rim, both flanges and faces. Never stop at the first finding.",
+          "A defect type seen on one cup (e.g. flange cut on 162340) must be looked for on ALL cups - cross-apply learned defect types.",
+          "Capture MULTIPLE defects per image and rank them; mark the highest-severity one as PRIMARY."
+        ],
+        "severity_priority": {
+          "P5": [
+            "cut",
+            "chip",
+            "missing material",
+            "torn",
+            "crack",
+            "broken"
+          ],
+          "P4": [
+            "deformation",
+            "dent",
+            "out-of-round",
+            "pinched",
+            "bent"
+          ],
+          "P3": [
+            "notch",
+            "nick",
+            "serration",
+            "incomplete embossing"
+          ],
+          "P2": [
+            "rust",
+            "discolor",
+            "electroplat",
+            "black mark",
+            "line defect",
+            "scratch"
+          ],
+          "P1": [
+            "dark mark",
+            "stain",
+            "paint"
+          ],
+          "default": 2
+        }
+      }
+    },
+    "segmentation_gotchas": [
+      "edge/Canny segmentation on a small feature that sits ON a bright curved rim will LOCK ONTO THE RIM and trace a long arc instead of the feature. For small notches/nicks on the inner rim, use a TINY tight box and DROP edge-seg (draw a plain rectangle). Root cause of repeated 'mask too big / wrong spot' complaints.",
+      "dark segmentation grabs the shadowed rim, not the actual stain, when the box is loose. Shrink the box below/away from the rim so the stain is the darkest pixel region.",
+      "Always place boxes tiny and tight on the actual defect, then verify each output at full zoom before reporting."
+    ],
+    "reject_paint_rule": {
+      "principle": "Red/pink reject paint is the operator's MARK showing WHERE they saw a problem - it is NOT itself the primary defect. When paint is present, HUNT the adjacent edge/geometry for the real defect (a cut, notch, dent, missing material) and mark THAT as primary; mark the paint only as a low-severity secondary.",
+      "learned_from": "IMG20260824162340 - I originally boxed the red paint + inner rim (most eye-catching) and edge-seg traced those instead of the real cut on the OUTER silhouette edge nearby.",
+      "scan_habit": "Trace the OUTER silhouette outline of the flange for steps/facets/kinks (missing material) - these are low-contrast against the smooth curve and easy to miss. Do not anchor only on bright bands or the paint."
+    },
+    "confirmed_defects_by_image": {
+      "IMG20260824161530": [
+        "notch / nick on inner rim (small raised nub, ~2 o'clock, tight box no edge-seg)"
+      ],
+      "IMG20260824161547": [
+        "notch / nick on inner rim (~12 o'clock)"
+      ],
+      "IMG20260824162142": [
+        "reject paint mark / rough flange edge",
+        "dark mark / stain on bottom flange (missed first pass - dark boss mark)"
+      ],
+      "IMG20260824162258": [
+        "notch / dent on outer flange"
+      ],
+      "IMG20260824162340": [
+        "cut / chipped flange edge on OUTER silhouette (missing material, ~4-5 o'clock, tight box no edge-seg)",
+        "reject paint mark (secondary, marks where inspector flagged)"
+      ],
+      "IMG20260824162425": [
+        "cut / notch on top outer flange edge (PRIMARY P5)",
+        "reject paint mark"
+      ],
+      "IMG20260824161920": [
+        "pinched / out-of-round bore (PRIMARY P4)",
+        "reject paint on inner wall"
+      ]
+    },
+    "recurring_mistakes": [
+      "Stopping at the first defect per image instead of scanning the whole part.",
+      "Not cross-applying a defect type seen on one image to the others.",
+      "Misreading shallow cuts / dark marks as the part's natural pressed shape.",
+      "Placing boxes from downscaled previews and not verifying at full resolution."
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+# Regenerable outputs
+inspect_out/
+uploads/
+label_preview/
+runs_daily/
+model_registry/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor
+.DS_Store
+Thumbs.db
