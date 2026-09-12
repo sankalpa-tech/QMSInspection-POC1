@@ -152,7 +152,7 @@ def extract(path):
                             minLineLength=int(0.20 * part_axis), maxLineGap=12)
     max_line_frac, n_long_lines, line_meta = 0.0, 0, []
     if lines is not None:
-        for l in lines[:, 0, :]:
+        for l in np.asarray(lines).reshape(-1, 4):
             x1, y1, x2, y2 = map(int, l)
             length = math.hypot(x2 - x1, y2 - y1)
             frac = length / part_axis
