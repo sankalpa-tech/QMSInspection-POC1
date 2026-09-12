@@ -18,7 +18,7 @@ except Exception:
     AES = os.environ.get("QMS_AES_DIR", r"C:\workspace-ai\AES2-20260830T112553Z-1-001\AES2")
     OUT = AES + "_annotated"
 LABEL_DIRS = [r"dataset\train\labels", r"dataset\valid\labels"]
-# Dataset (YOLO GT) class order for link-3hole labels. Defect names + colors +
+# Dataset (YOLO GT) class order. Defect names + colors +
 # severity are centrally controlled in knowledge/taxonomy.json (via taxonomy.py).
 CLASSES = ['black mark after electroplating', 'electroplating defect',
            'incomplete embossing', 'line defect', 'serration']

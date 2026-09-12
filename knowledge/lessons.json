@@ -31,6 +31,32 @@
         "P1": ["dark mark", "stain", "paint"],
         "default": 2
       }
+    },
+    "Bracket": {
+      "description": "Sheet-metal / machined bracket: flat mounting faces, bent flanges and drilled/pierced holes. Photographed top-down or angled. Inspect faces, bent edges and hole rims.",
+      "signatures": {
+        "Notch": "A small raised nub, burr or bite/indentation breaking the smooth line of an edge, bent flange or hole rim. Localised (a few mm).",
+        "Cut / Chip": "A bite of material missing from an edge or flange - the outline steps inward or looks torn/faceted instead of a smooth continuous line.",
+        "Stain": "Discrete dark/black smudge or burn on the metal face; darker than the surrounding metal and NOT a shadow.",
+        "Reject Paint Mark": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Treat as a secondary marker - hunt the adjacent real defect.",
+        "Deformation": "Bracket is bent, twisted or a hole is out-of-round / pinched when it should be true.",
+        "Dent": "A localised inward deformation of a face or flange that does not remove material.",
+        "Rust": "Brown/orange mottled corrosion or discoloration on a face or edge.",
+        "OK": "Straight flat faces, clean bent flanges, round true holes, no discrete dark mark, no missing material."
+      },
+      "confirmed_rulings": [
+        "Scan the ENTIRE part for EVERY defect type - all faces, bent edges and hole rims. Never stop at the first finding.",
+        "Cross-apply learned defect types: a defect seen on one bracket must be looked for on ALL brackets.",
+        "Capture MULTIPLE defects per image and rank them; mark the highest-severity one as PRIMARY."
+      ],
+      "severity_priority": {
+        "P5": ["cut", "chip", "missing material", "torn", "crack", "broken"],
+        "P4": ["deformation", "dent", "out-of-round", "pinched", "bent"],
+        "P3": ["notch", "nick", "serration", "incomplete embossing"],
+        "P2": ["rust", "discolor", "electroplat", "black mark", "line defect", "scratch"],
+        "P1": ["dark mark", "stain", "paint"],
+        "default": 2
+      }
     }
   },
 

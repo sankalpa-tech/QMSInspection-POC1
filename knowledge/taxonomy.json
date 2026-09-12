@@ -3,7 +3,7 @@
   "note": "SINGLE SOURCE OF TRUTH for parts + defect taxonomy. Every module (annotate_aes2, teach_cups, build_pt, run_pt) reads names / severity / colors from here via taxonomy.py. To add or rename a defect, edit ONLY this file, then run: python qms.py build.",
 
   "default_part": "Bearing Cup",
-  "parts": ["Bearing Cup", "link-3hole"],
+  "parts": ["Bearing Cup", "Bracket"],
 
   "default_severity": 2,
 

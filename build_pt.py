@@ -67,18 +67,13 @@ def build():
     mean = torch.tensor(np.array(cache["norm"]["mean"], dtype=np.float32))
     std = torch.tensor(np.array(cache["norm"]["std"], dtype=np.float32))
 
-    # geometry: exact learned defect placement per image (cup review + link GT)
+    # geometry: exact learned defect placement per image (from the review file)
     review = _review()
-    gt = A.load_gt()
     geometry = {}
     for b, entry in review.items():
         geometry[b] = {"part": entry.get("part", "default"),
                        "result": entry.get("result"),
                        "defects": entry.get("defects", [])}
-    for b, dets in gt.items():
-        geometry[b] = {"part": "link-3hole", "result": ("DEFECT" if dets else "OK"),
-                       "defects": [{"category": n, "points": pts,
-                                    "reason": "dataset ground-truth annotation"} for n, pts in dets]}
 
     ckpt = {
         "format": "qms-defect-knn",

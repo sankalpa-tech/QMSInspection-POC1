@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-09-12T18:05:09",
+  "updated_at": "2026-09-12T18:10:22",
   "categories": [
     "black mark after electroplating",
     "electroplating defect",
@@ -34,51 +34,51 @@
   ],
   "norm": {
     "mean": [
-      0.18738095238095237,
-      127.58380952380953,
-      46.308571428571426,
-      19.198571428571427,
-      8.543809523809525,
-      0.0004000000000000001,
-      402.7952380952381,
-      0.4103333333333334,
-      30.523809523809526,
-      46.13047619047619,
-      0.04662857142857142,
-      9.961904761904762,
-      53.84571428571429
+      0.17822777777777776,
+      121.44111111111114,
+      50.18333333333333,
+      18.685555555555553,
+      8.000555555555557,
+      0.0001611111111111111,
+      279.36777777777775,
+      0.40505555555555556,
+      26.22222222222222,
+      44.88,
+      0.049999999999999996,
+      9.360000000000001,
+      53.99888888888888
     ],
     "std": [
-      0.07040563843118315,
-      21.498794091583143,
-      12.080328474607873,
-      14.718021116244918,
-      5.236977932785352,
-      0.0008182443458550811,
-      453.31679956494054,
-      0.20784273664144046,
-      36.597708811473886,
-      12.284517346640417,
-      0.02793542115490727,
-      3.051556385171686,
-      11.715511317999606
+      0.06774437906617586,
+      16.3206535438617,
+      8.059443046651687,
+      15.765166321222319,
+      5.468727733640738,
+      0.00016034299655179793,
+      203.8979854555692,
+      0.19742325434969582,
+      25.218061330799213,
+      12.505246010286154,
+      0.02863604954132698,
+      2.7461002652246087,
+      11.823101627693362
     ]
   },
   "centroids": {
     "OK": [
-      0.19552222222222224,
-      128.53333333333336,
-      38.284444444444446,
-      27.017777777777777,
-      10.856666666666667,
-      0.0007444444444444444,
-      540.9633333333334,
-      0.4505555555555556,
-      40.666666666666664,
-      44.211111111111116,
-      0.04183333333333334,
-      10.327777777777778,
-      53.80777777777777
+      0.17213333333333333,
+      110.58,
+      45.89666666666667,
+      29.388333333333332,
+      10.383333333333333,
+      0.0002,
+      239.765,
+      0.45483333333333337,
+      32.833333333333336,
+      39.50000000000001,
+      0.049550000000000004,
+      8.705,
+      54.248333333333335
     ]
   },
   "counts": {
@@ -87,7 +87,7 @@
     "incomplete embossing": 0,
     "line defect": 0,
     "serration": 0,
-    "OK": 9
+    "OK": 6
   },
   "parts": {
     "Bearing Cup": {
@@ -99,9 +99,6 @@
       "Cut / Chip": 2,
       "OK": 6,
       "Rust": 1
-    },
-    "link-3hole": {
-      "OK": 3
     }
   },
   "thresholds": {
@@ -152,6 +149,61 @@
           "Tilted / side-view cups whose inner rim is smooth and not clearly visible (e.g. 162751, 162819, 162618, 162900, 163000, 163031) are OK - do NOT paint a speculative box; a false mark is worse than none.",
           "Scan the ENTIRE part for EVERY defect type seen anywhere in the set - full outer edge, inner rim, both flanges and faces. Never stop at the first finding.",
           "A defect type seen on one cup (e.g. flange cut on 162340) must be looked for on ALL cups - cross-apply learned defect types.",
+          "Capture MULTIPLE defects per image and rank them; mark the highest-severity one as PRIMARY."
+        ],
+        "severity_priority": {
+          "P5": [
+            "cut",
+            "chip",
+            "missing material",
+            "torn",
+            "crack",
+            "broken"
+          ],
+          "P4": [
+            "deformation",
+            "dent",
+            "out-of-round",
+            "pinched",
+            "bent"
+          ],
+          "P3": [
+            "notch",
+            "nick",
+            "serration",
+            "incomplete embossing"
+          ],
+          "P2": [
+            "rust",
+            "discolor",
+            "electroplat",
+            "black mark",
+            "line defect",
+            "scratch"
+          ],
+          "P1": [
+            "dark mark",
+            "stain",
+            "paint"
+          ],
+          "default": 2
+        }
+      },
+      "Bracket": {
+        "description": "Sheet-metal / machined bracket: flat mounting faces, bent flanges and drilled/pierced holes. Photographed top-down or angled. Inspect faces, bent edges and hole rims.",
+        "signatures": {
+          "Notch": "A small raised nub, burr or bite/indentation breaking the smooth line of an edge, bent flange or hole rim. Localised (a few mm).",
+          "Cut / Chip": "A bite of material missing from an edge or flange - the outline steps inward or looks torn/faceted instead of a smooth continuous line.",
+          "Stain": "Discrete dark/black smudge or burn on the metal face; darker than the surrounding metal and NOT a shadow.",
+          "Reject Paint Mark": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Treat as a secondary marker - hunt the adjacent real defect.",
+          "Deformation": "Bracket is bent, twisted or a hole is out-of-round / pinched when it should be true.",
+          "Dent": "A localised inward deformation of a face or flange that does not remove material.",
+          "Rust": "Brown/orange mottled corrosion or discoloration on a face or edge.",
+          "OK": "Straight flat faces, clean bent flanges, round true holes, no discrete dark mark, no missing material."
+        },
+        "confirmed_rulings": [
+          "Scan the ENTIRE part for EVERY defect type - all faces, bent edges and hole rims. Never stop at the first finding.",
+          "Cross-apply learned defect types: a defect seen on one bracket must be looked for on ALL brackets.",
           "Capture MULTIPLE defects per image and rank them; mark the highest-severity one as PRIMARY."
         ],
         "severity_priority": {
