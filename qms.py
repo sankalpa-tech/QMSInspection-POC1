@@ -9,7 +9,7 @@ Implements the production loop:
 Commands:
     python qms.py inspect <image|dir> [--escalate] [--no-teach] [--out DIR]
     python qms.py build                       # repack models/best.pt from DB
-    python qms.py teach <image> --json <verdict.json> [--part cup-collar]
+    python qms.py teach <image> --json <verdict.json> [--part "Bearing Cup"]
     python qms.py context <image>             # print the Claude context pack (debug)
     python qms.py serve [--port 8000]         # REST API
     python qms.py stats                       # DB + model summary
@@ -97,7 +97,7 @@ def _do_escalate(path, model, out_dir, args):
         # render + persist annotated output for the Claude verdict
         run_pt.render_verdict(path, verdict, model, out_dir)
         if not args.no_teach and verdict.get("result") in ("DEFECT", "OK"):
-            part = meta.get("part") or "cup-collar"
+            part = meta.get("part") or "Bearing Cup"
             teach_loop.teach(path, verdict, part=part, source="claude", rebuild=True)
             model = run_pt.load_model(config.MODEL_PATH)  # reload improved model
         toks = meta["usage"]
@@ -179,7 +179,7 @@ def build_parser():
     pt = sub.add_parser("teach", help="teach a verdict for an image")
     pt.add_argument("target")
     pt.add_argument("--json", required=True, help="verdict JSON file")
-    pt.add_argument("--part", default="cup-collar")
+    pt.add_argument("--part", default="Bearing Cup")
     pt.set_defaults(func=cmd_teach)
 
     pc = sub.add_parser("context", help="print the Claude learning context pack for an image")

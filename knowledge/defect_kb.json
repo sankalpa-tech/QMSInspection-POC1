@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-09-12T15:47:21",
+  "updated_at": "2026-09-12T18:01:32",
   "categories": [
     "black mark after electroplating",
     "electroplating defect",
@@ -90,18 +90,15 @@
     "OK": 9
   },
   "parts": {
-    "cup-collar": {
-      "dent / deformation on inner rim": 1,
-      "notch / nick on flange edge": 1,
-      "notch / nick on inner rim": 3,
-      "deformation (out-of-round / pinched bore)": 1,
-      "dark mark / stain": 1,
-      "reject paint mark on bottom flange": 1,
-      "notch / dent on outer flange": 1,
-      "cut / chipped flange edge (missing material)": 1,
-      "cut / notch on outer flange edge": 1,
+    "Bearing Cup": {
+      "Dent": 2,
+      "Notch": 4,
+      "Deformation": 1,
+      "Stain": 1,
+      "Reject Paint Mark": 1,
+      "Cut / Chip": 2,
       "OK": 6,
-      "rust / discoloration": 1
+      "Rust": 1
     },
     "link-3hole": {
       "OK": 3
@@ -136,17 +133,18 @@
   "lessons": {
     "version": 1,
     "updated_at": "2026-09-06T21:45:00",
-    "note": "Durable lessons learned from human corrections. Loaded into defect_kb.json on every rebuild so inspection never loses them. Covers the free-form cup-collar part (deep-drawn collar/cup) which has NO ground-truth polygons.",
+    "note": "Durable lessons learned from human corrections. Loaded into defect_kb.json on every rebuild so inspection never loses them. Covers the free-form Bearing Cup part (deep-drawn collar/cup) which has NO ground-truth polygons.",
     "parts": {
-      "cup-collar": {
-        "description": "Deep-drawn metal collar / cup: outer flange (rolled edge), a stepped inner rim/collar, and a central bore. Photographed top-down (rim visible as a ring) or tilted (side view, rim foreshortened).",
+      "Bearing Cup": {
+        "description": "Deep-drawn metal bearing cup: outer flange (rolled edge), a stepped inner rim/collar, and a central bore. Photographed top-down (rim visible as a ring) or tilted (side view, rim foreshortened).",
         "signatures": {
-          "notch / nick on inner rim": "A small raised nub or a bite/indentation breaking the smooth curve of the inner collar rim edge. Localised (a few mm). NOT the long bright rim highlight itself.",
-          "cut / chipped flange edge (missing material)": "A bite of material missing from the outer rolled flange edge - the edge outline steps inward or looks torn/faceted instead of a smooth continuous curve.",
-          "dark mark / stain on bottom flange": "Discrete dark/black smudge or burn sitting on top of the flange face; darker than the surrounding metal and NOT the shadow cast by the rim.",
-          "reject paint mark / rough flange edge": "Deliberate red/pink inspection paint OR a locally rough, pitted, torn flange edge.",
-          "pinched / out-of-round bore": "Central bore is not a clean circle - one side pinched, dented inward or ovalised.",
-          "square tab on inner rim (12 o'clock)": "A square/blocky tab interrupting the inner rim near the 12 o'clock position. CONFIRMED BY USER AS A DEFECT - flag it on every cup where it appears.",
+          "Notch": "A small raised nub, square tab, or a bite/indentation breaking the smooth curve of an edge or the inner collar rim. Localised (a few mm). NOT the long bright rim highlight itself.",
+          "Cut / Chip": "A bite of material missing from the outer rolled flange edge - the edge outline steps inward or looks torn/faceted instead of a smooth continuous curve.",
+          "Stain": "Discrete dark/black smudge or burn sitting on the metal face; darker than the surrounding metal and NOT the shadow cast by the rim.",
+          "Reject Paint Mark": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Treat as a secondary marker - hunt the adjacent real defect.",
+          "Deformation": "Central bore is not a clean circle - one side pinched, dented inward or ovalised (out-of-round).",
+          "Dent": "A localised inward deformation of the rim or flange face that does not remove material.",
+          "Rust": "Brown/orange mottled corrosion or discoloration on the drawn wall or face.",
           "OK": "Smooth continuous outer flange, unbroken inner rim curve, round bore, no discrete dark mark, no missing material."
         },
         "confirmed_rulings": [
@@ -207,29 +205,29 @@
     },
     "confirmed_defects_by_image": {
       "IMG20260824161530": [
-        "notch / nick on inner rim (small raised nub, ~2 o'clock, tight box no edge-seg)"
+        "Notch (small raised nub, inner rim ~2 o'clock, tight box no edge-seg)"
       ],
       "IMG20260824161547": [
-        "notch / nick on inner rim (~12 o'clock)"
+        "Notch (inner rim ~12 o'clock)"
       ],
       "IMG20260824162142": [
-        "reject paint mark / rough flange edge",
-        "dark mark / stain on bottom flange (missed first pass - dark boss mark)"
+        "Reject Paint Mark",
+        "Stain (missed first pass - dark boss mark on bottom flange)"
       ],
       "IMG20260824162258": [
-        "notch / dent on outer flange"
+        "Dent (outer flange)"
       ],
       "IMG20260824162340": [
-        "cut / chipped flange edge on OUTER silhouette (missing material, ~4-5 o'clock, tight box no edge-seg)",
-        "reject paint mark (secondary, marks where inspector flagged)"
+        "Cut / Chip (OUTER silhouette, missing material, ~4-5 o'clock, tight box no edge-seg)",
+        "Reject Paint Mark (secondary, marks where inspector flagged)"
       ],
       "IMG20260824162425": [
-        "cut / notch on top outer flange edge (PRIMARY P5)",
-        "reject paint mark"
+        "Cut / Chip (top outer flange edge, PRIMARY P5)",
+        "Reject Paint Mark"
       ],
       "IMG20260824161920": [
-        "pinched / out-of-round bore (PRIMARY P4)",
-        "reject paint on inner wall"
+        "Deformation (pinched / out-of-round bore, PRIMARY P4)",
+        "Reject Paint Mark (inner wall)"
       ]
     },
     "recurring_mistakes": [

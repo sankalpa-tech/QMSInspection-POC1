@@ -110,7 +110,7 @@ def build():
     print(f"  exemplars : {len(labels)}  ({dict(_count(parts))})")
     print(f"  geometry  : {len(geometry)} images")
     print(f"  lessons   : {'yes' if ckpt['lessons'] else 'no'}  "
-          f"(cup signatures={len(ckpt['lessons'].get('parts',{}).get('cup-collar',{}).get('signatures',{}))})")
+          f"(cup signatures={len(ckpt['lessons'].get('parts',{}).get('Bearing Cup',{}).get('signatures',{}))})")
     print(f"  categories: {sum(len(v) for v in ckpt['categories_by_part'].values())} across "
           f"{len(ckpt['categories_by_part'])} parts")
     return OUT_PT

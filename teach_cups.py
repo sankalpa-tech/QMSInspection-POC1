@@ -44,19 +44,19 @@ def primary_label(entry):
 # Corrections the user taught me (image -> the defect I originally MISSED/mis-marked).
 CORRECTIONS = {
     "IMG20260824162142": ("reject paint mark on bottom flange",
-                          "dark mark / stain on bottom flange",
+                          "Stain",
                           "Missed the dark boss mark on first pass; capture BOTH defects."),
     "IMG20260824162425": ("reject paint mark / rough inner-bore edge",
-                          "cut / notch on outer flange edge",
+                          "Cut / Chip",
                           "Missed the top-flange cut (same defect type as 162340); scan whole edge."),
     "IMG20260824161920": ("reject paint mark on inner wall",
-                          "deformation (out-of-round / pinched bore)",
+                          "Deformation",
                           "Missed the pinched bore; the deformation is the primary (higher-severity) defect."),
     "IMG20260824161530": ("notch mask traced whole rim",
-                          "notch / nick on inner rim",
+                          "Notch",
                           "edge-seg locked onto the bright rim; use a tiny tight box, no edge-seg."),
     "IMG20260824162340": ("boxed red paint + inner rim (edge-seg traced wrong contour)",
-                          "cut / chipped flange edge (missing material) on OUTER silhouette",
+                          "Cut / Chip",
                           "Paint is only the reject MARK; the real cut is the step on the outer flange silhouette nearby. Hunt the edge geometry, not the paint."),
 }
 
@@ -75,7 +75,7 @@ def main():
     added, skipped = 0, 0
     have = {}
     for base, entry in review.items():
-        part = entry.get("part", "cup-collar")
+        part = entry.get("part", "Bearing Cup")
         have.setdefault(part, existing_names(part))
         if base in have[part]:
             skipped += 1
@@ -111,8 +111,8 @@ def main():
     print(f"\nexemplars: +{added} added, {skipped} already present")
     print(f"feedback:  +{fb} corrections recorded")
     print(f"parts in cache: {cache.get('parts', {}).keys()}")
-    print("cup-collar categories learned:",
-          json.dumps(cache.get("parts", {}).get("cup-collar", {}), indent=2))
+    print("Bearing Cup categories learned:",
+          json.dumps(cache.get("parts", {}).get("Bearing Cup", {}), indent=2))
     print("lessons embedded:", bool(cache.get("lessons")))
 
 

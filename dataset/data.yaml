@@ -1,0 +1,14 @@
+path: C:/workspace-ai/QMSInspection-POC/dataset
+train: train/images
+val: valid/images
+test: valid/images
+
+nc: 5
+names: ['black mark after electroplating', 'electroplating defect', 'incomplete embossing', 'line defect', 'serration']
+
+roboflow:
+  workspace: indiver-singhal
+  project: manufacturing-part-defects
+  version: 5
+  license: Private
+  url: https://app.roboflow.com/indiver-singhal/manufacturing-part-defects/5

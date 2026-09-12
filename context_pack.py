@@ -96,7 +96,7 @@ def build(model, feature_vec, part_hint=None, k=5):
     lines.append("")
 
     # 2. per-part learned signatures / rulings
-    cup = (lessons.get("parts", {}) or {}).get("cup-collar", {})
+    cup = (lessons.get("parts", {}) or {}).get("Bearing Cup", {})
     part_lessons = (lessons.get("parts", {}) or {}).get(part, cup)
     if part_lessons.get("signatures"):
         lines.append("=== VISUAL SIGNATURES (learned) ===")

@@ -37,7 +37,7 @@ def _primary_label(verdict):
     return defs[0].get("type", "defect")
 
 
-def teach(image_path, verdict, part="cup-collar", source="claude", rebuild=True):
+def teach(image_path, verdict, part="Bearing Cup", source="claude", rebuild=True):
     """Persist a verdict as a confirmed learning. Returns the primary label."""
     import re
     base = os.path.splitext(os.path.basename(image_path))[0]
