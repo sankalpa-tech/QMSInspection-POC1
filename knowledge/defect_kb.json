@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "updated_at": "2026-09-13T20:02:01",
+  "updated_at": "2026-09-13T20:08:04",
   "categories": [
-    "black mark after electroplating",
-    "electroplating defect",
-    "incomplete embossing",
-    "line defect",
-    "serration",
+    "Black Mark After Electroplating",
+    "Electroplating Defect",
+    "Incomplete Embossing",
+    "Line Defect",
+    "Serration",
     "OK"
   ],
   "signatures": {
-    "black mark after electroplating": "Discrete dark/black smudge or spot sitting on top of otherwise normal plating; local darkening not explained by shadow.",
-    "electroplating defect": "Patch of abnormal/uneven plating - dull, matte or rough area where the finish did not deposit uniformly.",
-    "incomplete embossing": "Stamped 'VA' logo is partial, faint or missing strokes; low central relief contrast.",
-    "line defect": "A single distinct straight scratch/gouge line crossing the surface, standing out from the normal brushed micro-texture.",
-    "serration": "Jagged/toothed edge on a hole that should be smooth (NOT the by-design splined bottom hole).",
+    "Black Mark After Electroplating": "Discrete dark/black smudge or spot sitting on top of otherwise normal plating; local darkening not explained by shadow.",
+    "Electroplating Defect": "Patch of abnormal/uneven plating - dull, matte or rough area where the finish did not deposit uniformly.",
+    "Incomplete Embossing": "Stamped 'VA' logo is partial, faint or missing strokes; low central relief contrast.",
+    "Line Defect": "A single distinct straight scratch/gouge line crossing the surface, standing out from the normal brushed micro-texture.",
+    "Serration": "Jagged/toothed edge on a hole that should be smooth (NOT the by-design splined bottom hole).",
     "OK": "Uniform finish, complete emboss, no discrete mark/line, smooth round hole edges."
   },
   "feature_keys": [
@@ -34,60 +34,135 @@
   ],
   "norm": {
     "mean": [
-      0.17822777777777776,
-      121.44111111111114,
-      50.18333333333333,
-      18.685555555555553,
-      8.000555555555557,
-      0.0001611111111111111,
-      279.36777777777775,
-      0.40505555555555556,
-      26.22222222222222,
-      44.88,
-      0.049999999999999996,
-      9.360000000000001,
-      53.99888888888888
+      0.1729081081081081,
+      136.19000000000003,
+      39.65945945945944,
+      21.668648648648645,
+      10.662162162162161,
+      0.006154054054054054,
+      996.3959459459462,
+      0.5509459459459459,
+      30.64864864864865,
+      48.60243243243242,
+      0.06700810810810812,
+      11.224864864864868,
+      46.33027027027026
     ],
     "std": [
-      0.06774437906617586,
-      16.3206535438617,
-      8.059443046651687,
-      15.765166321222319,
-      5.468727733640738,
-      0.00016034299655179793,
-      203.8979854555692,
-      0.19742325434969582,
-      25.218061330799213,
-      12.505246010286154,
-      0.02863604954132698,
-      2.7461002652246087,
-      11.823101627693362
+      0.08617720705232716,
+      24.26580543714784,
+      12.01651834856209,
+      13.411906602507717,
+      6.031845280444199,
+      0.014948842395652284,
+      858.1476105824858,
+      0.2256044069372551,
+      26.327681677241806,
+      12.412979999244776,
+      0.03792405197288874,
+      3.0502420122163834,
+      12.713818931337897
     ]
   },
   "centroids": {
+    "Black Mark After Electroplating": [
+      0.19336666666666666,
+      164.05833333333337,
+      31.623333333333335,
+      26.123333333333335,
+      16.566666666666666,
+      0.0206,
+      1226.1266666666668,
+      0.6295000000000001,
+      28.5,
+      56.17166666666666,
+      0.08553333333333335,
+      11.768333333333333,
+      40.57833333333334
+    ],
+    "Electroplating Defect": [
+      0.2443,
+      173.62,
+      34.26,
+      8.75,
+      6.38,
+      0.0355,
+      2678.95,
+      0.912,
+      110.0,
+      58.7,
+      0.112,
+      16.03,
+      40.07
+    ],
+    "Incomplete Embossing": [
+      0.09035,
+      142.47,
+      32.215,
+      36.17,
+      14.81,
+      0.00055,
+      2184.56,
+      0.877,
+      24.0,
+      52.754999999999995,
+      0.061149999999999996,
+      13.565,
+      31.775
+    ],
+    "Line Defect": [
+      0.21311999999999998,
+      138.56400000000002,
+      28.410000000000004,
+      24.378000000000004,
+      12.145999999999999,
+      0.01208,
+      1877.6580000000001,
+      0.5861999999999999,
+      37.6,
+      51.269999999999996,
+      0.08674,
+      15.264,
+      46.484
+    ],
+    "Serration": [
+      0.2345,
+      158.92,
+      24.0,
+      18.6,
+      9.28,
+      0.0033,
+      2172.56,
+      0.559,
+      84.0,
+      49.09,
+      0.0447,
+      10.12,
+      27.61
+    ],
     "OK": [
-      0.17213333333333333,
-      110.58,
-      45.89666666666667,
-      29.388333333333332,
-      10.383333333333333,
-      0.0002,
-      239.765,
-      0.45483333333333337,
-      32.833333333333336,
-      39.50000000000001,
-      0.049550000000000004,
-      8.705,
-      54.248333333333335
+      0.13369999999999999,
+      122.19200000000001,
+      38.5,
+      26.340999999999998,
+      10.738,
+      0.00021000000000000004,
+      731.0939999999999,
+      0.5890000000000001,
+      25.8,
+      42.077,
+      0.06507,
+      9.886,
+      46.061
     ]
   },
   "counts": {
-    "black mark after electroplating": 0,
-    "electroplating defect": 0,
-    "incomplete embossing": 0,
-    "line defect": 0,
-    "serration": 0,
-    "OK": 6
+    "Black Mark After Electroplating": 6,
+    "Electroplating Defect": 1,
+    "Incomplete Embossing": 2,
+    "Line Defect": 5,
+    "Serration": 1,
+    "OK": 10
   },
   "parts": {
     "Bearing Cup": {
@@ -99,6 +174,14 @@
       "Edge Chip": 2,
       "OK": 6,
       "Corrosion": 1
+    },
+    "Bracket": {
+      "Line Defect": 5,
+      "OK": 4,
+      "Incomplete Embossing": 2,
+      "Serration": 1,
+      "Black Mark After Electroplating": 6,
+      "Electroplating Defect": 1
     }
   },
   "thresholds": {
@@ -114,16 +197,16 @@
   },
   "confusions": [
     [
-      "electroplating defect",
-      "incomplete embossing",
+      "Electroplating Defect",
+      "Incomplete Embossing",
       "OK"
     ],
     [
-      "serration",
+      "Serration",
       "splined-hole (design, not a defect)"
     ],
     [
-      "black mark after electroplating",
+      "Black Mark After Electroplating",
       "shadow/plating tint"
     ]
   ],

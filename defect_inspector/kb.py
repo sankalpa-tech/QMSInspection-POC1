@@ -20,21 +20,21 @@ CACHE_PATH = os.path.join(ROOT, "knowledge", "defect_kb.json")
 LESSONS_PATH = os.path.join(ROOT, "knowledge", "lessons.json")
 
 CATEGORIES = [
-    "black mark after electroplating",
-    "electroplating defect",
-    "incomplete embossing",
-    "line defect",
-    "serration",
+    "Black Mark After Electroplating",
+    "Electroplating Defect",
+    "Incomplete Embossing",
+    "Line Defect",
+    "Serration",
     "OK",
 ]
 
 # Human-authored visual signatures (seeded from the reference analysis).
 SIGNATURES = {
-    "black mark after electroplating": "Discrete dark/black smudge or spot sitting on top of otherwise normal plating; local darkening not explained by shadow.",
-    "electroplating defect": "Patch of abnormal/uneven plating - dull, matte or rough area where the finish did not deposit uniformly.",
-    "incomplete embossing": "Stamped 'VA' logo is partial, faint or missing strokes; low central relief contrast.",
-    "line defect": "A single distinct straight scratch/gouge line crossing the surface, standing out from the normal brushed micro-texture.",
-    "serration": "Jagged/toothed edge on a hole that should be smooth (NOT the by-design splined bottom hole).",
+    "Black Mark After Electroplating": "Discrete dark/black smudge or spot sitting on top of otherwise normal plating; local darkening not explained by shadow.",
+    "Electroplating Defect": "Patch of abnormal/uneven plating - dull, matte or rough area where the finish did not deposit uniformly.",
+    "Incomplete Embossing": "Stamped 'VA' logo is partial, faint or missing strokes; low central relief contrast.",
+    "Line Defect": "A single distinct straight scratch/gouge line crossing the surface, standing out from the normal brushed micro-texture.",
+    "Serration": "Jagged/toothed edge on a hole that should be smooth (NOT the by-design splined bottom hole).",
     "OK": "Uniform finish, complete emboss, no discrete mark/line, smooth round hole edges.",
 }
 
@@ -206,9 +206,9 @@ def rebuild_cache():
         "parts": parts,
         "thresholds": _default_thresholds(),
         "confusions": [
-            ["electroplating defect", "incomplete embossing", "OK"],
-            ["serration", "splined-hole (design, not a defect)"],
-            ["black mark after electroplating", "shadow/plating tint"],
+            ["Electroplating Defect", "Incomplete Embossing", "OK"],
+            ["Serration", "splined-hole (design, not a defect)"],
+            ["Black Mark After Electroplating", "shadow/plating tint"],
         ],
         "lessons": load_lessons(),
     }

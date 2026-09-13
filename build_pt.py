@@ -67,13 +67,21 @@ def build():
     mean = torch.tensor(np.array(cache["norm"]["mean"], dtype=np.float32))
     std = torch.tensor(np.array(cache["norm"]["std"], dtype=np.float32))
 
-    # geometry: exact learned defect placement per image (from the review file)
+    # geometry: exact learned defect placement per image
     review = _review()
     geometry = {}
     for b, entry in review.items():
         geometry[b] = {"part": entry.get("part", "default"),
                        "result": entry.get("result"),
                        "defects": entry.get("defects", [])}
+    # Bracket geometry from the YOLO-seg dataset ground-truth (names canonicalised
+    # to the central taxonomy so masks render with domain-standard labels).
+    import taxonomy as TAX
+    for b, dets in A.load_gt().items():
+        geometry[b] = {"part": "Bracket", "result": ("DEFECT" if dets else "OK"),
+                       "defects": [{"category": TAX.canonical(n), "points": pts,
+                                    "reason": "dataset ground-truth annotation"}
+                                   for n, pts in dets]}
 
     ckpt = {
         "format": "qms-defect-knn",
