@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated_at": "2026-09-12T18:10:22",
+  "updated_at": "2026-09-13T20:02:01",
   "categories": [
     "black mark after electroplating",
     "electroplating defect",
@@ -92,13 +92,13 @@
   "parts": {
     "Bearing Cup": {
       "Dent": 2,
-      "Notch": 4,
-      "Deformation": 1,
-      "Stain": 1,
-      "Reject Paint Mark": 1,
-      "Cut / Chip": 2,
+      "Nick": 4,
+      "Out-of-Round": 1,
+      "Discoloration": 1,
+      "Reject Mark": 1,
+      "Edge Chip": 2,
       "OK": 6,
-      "Rust": 1
+      "Corrosion": 1
     }
   },
   "thresholds": {
@@ -135,13 +135,13 @@
       "Bearing Cup": {
         "description": "Deep-drawn metal bearing cup: outer flange (rolled edge), a stepped inner rim/collar, and a central bore. Photographed top-down (rim visible as a ring) or tilted (side view, rim foreshortened).",
         "signatures": {
-          "Notch": "A small raised nub, square tab, or a bite/indentation breaking the smooth curve of an edge or the inner collar rim. Localised (a few mm). NOT the long bright rim highlight itself.",
-          "Cut / Chip": "A bite of material missing from the outer rolled flange edge - the edge outline steps inward or looks torn/faceted instead of a smooth continuous curve.",
-          "Stain": "Discrete dark/black smudge or burn sitting on the metal face; darker than the surrounding metal and NOT the shadow cast by the rim.",
-          "Reject Paint Mark": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Treat as a secondary marker - hunt the adjacent real defect.",
-          "Deformation": "Central bore is not a clean circle - one side pinched, dented inward or ovalised (out-of-round).",
+          "Nick": "A small raised nub, square tab, or a bite/indentation breaking the smooth curve of an edge or the inner collar rim. Localised (a few mm). NOT the long bright rim highlight itself.",
+          "Edge Chip": "A bite of material missing from the outer rolled flange edge - the edge outline steps inward or looks torn/faceted instead of a smooth continuous curve.",
+          "Discoloration": "Discrete dark/black smudge or burn sitting on the metal face; darker than the surrounding metal and NOT the shadow cast by the rim.",
+          "Reject Mark": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Treat as a secondary marker - hunt the adjacent real defect.",
+          "Out-of-Round": "Central bore is not a clean circle - one side pinched, dented inward or ovalised (out-of-round).",
           "Dent": "A localised inward deformation of the rim or flange face that does not remove material.",
-          "Rust": "Brown/orange mottled corrosion or discoloration on the drawn wall or face.",
+          "Corrosion": "Brown/orange mottled corrosion or rust on the drawn wall or face.",
           "OK": "Smooth continuous outer flange, unbroken inner rim curve, round bore, no discrete dark mark, no missing material."
         },
         "confirmed_rulings": [
@@ -190,56 +190,30 @@
         }
       },
       "Bracket": {
-        "description": "Sheet-metal / machined bracket: flat mounting faces, bent flanges and drilled/pierced holes. Photographed top-down or angled. Inspect faces, bent edges and hole rims.",
+        "description": "Electroplated / surface-finished bracket part. Inspect the plated surface, embossed features and edges. Uses domain-standard electroplating/surface-finish defect names.",
         "signatures": {
-          "Notch": "A small raised nub, burr or bite/indentation breaking the smooth line of an edge, bent flange or hole rim. Localised (a few mm).",
-          "Cut / Chip": "A bite of material missing from an edge or flange - the outline steps inward or looks torn/faceted instead of a smooth continuous line.",
-          "Stain": "Discrete dark/black smudge or burn on the metal face; darker than the surrounding metal and NOT a shadow.",
-          "Reject Paint Mark": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Treat as a secondary marker - hunt the adjacent real defect.",
-          "Deformation": "Bracket is bent, twisted or a hole is out-of-round / pinched when it should be true.",
-          "Dent": "A localised inward deformation of a face or flange that does not remove material.",
-          "Rust": "Brown/orange mottled corrosion or discoloration on a face or edge.",
-          "OK": "Straight flat faces, clean bent flanges, round true holes, no discrete dark mark, no missing material."
+          "Black Mark After Electroplating": "Dark/black blemish left on the surface after the electroplating process; darker than the surrounding plated finish.",
+          "Electroplating Defect": "A flaw in the electroplated finish - uneven, pitted, blistered, dull or missing plating.",
+          "Incomplete Embossing": "Embossed feature is not fully formed - shallow, partial or missing impression versus a fully struck emboss.",
+          "Line Defect": "A long straight line/streak flaw running across the surface.",
+          "Serration": "Saw-tooth / jagged serrated deformation along an edge.",
+          "OK": "Uniform plated finish, fully-formed embossing, clean straight edges, no marks, lines or serrations."
         },
         "confirmed_rulings": [
-          "Scan the ENTIRE part for EVERY defect type - all faces, bent edges and hole rims. Never stop at the first finding.",
+          "Scan the ENTIRE part for EVERY defect type - full plated surface, embossed features and all edges. Never stop at the first finding.",
           "Cross-apply learned defect types: a defect seen on one bracket must be looked for on ALL brackets.",
           "Capture MULTIPLE defects per image and rank them; mark the highest-severity one as PRIMARY."
         ],
         "severity_priority": {
-          "P5": [
-            "cut",
-            "chip",
-            "missing material",
-            "torn",
-            "crack",
-            "broken"
-          ],
-          "P4": [
-            "deformation",
-            "dent",
-            "out-of-round",
-            "pinched",
-            "bent"
-          ],
           "P3": [
-            "notch",
-            "nick",
-            "serration",
-            "incomplete embossing"
+            "incomplete embossing",
+            "serration"
           ],
           "P2": [
-            "rust",
-            "discolor",
             "electroplat",
+            "electroplating defect",
             "black mark",
-            "line defect",
-            "scratch"
-          ],
-          "P1": [
-            "dark mark",
-            "stain",
-            "paint"
+            "line defect"
           ],
           "default": 2
         }

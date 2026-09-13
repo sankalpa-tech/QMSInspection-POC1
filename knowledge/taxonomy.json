@@ -7,54 +7,88 @@
 
   "default_severity": 2,
 
+  "note_defects": "Bearing Cup uses domain-standard metal-forming defect names; Bracket uses the domain-standard electroplating/surface-finish names from the dataset. Legacy/generic names are kept as aliases so older data still resolves.",
+
   "defects": {
-    "Cut / Chip": {
+    "Edge Chip": {
       "severity": 5,
       "color": [0, 0, 255],
-      "aliases": ["cut", "chip", "chipped", "missing material", "torn", "crack", "broken"],
+      "aliases": ["cut / chip", "cut", "chip", "chipped", "missing material", "torn", "crack", "broken"],
       "description": "A bite of material missing from a rolled edge - the outline steps inward or looks torn/faceted instead of a smooth continuous curve."
     },
     "Dent": {
       "severity": 4,
       "color": [0, 140, 255],
-      "aliases": ["dent", "deformation on inner rim", "notch / dent on outer flange"],
+      "aliases": ["dent", "ding", "deformation on inner rim", "notch / dent on outer flange"],
       "description": "A localised inward deformation of the rim or flange face that does not remove material."
     },
-    "Deformation": {
+    "Out-of-Round": {
       "severity": 4,
       "color": [0, 90, 255],
-      "aliases": ["deformation", "out-of-round", "out of round", "pinched", "bent", "ovalised"],
+      "aliases": ["deformation", "out-of-round", "out of round", "ovality", "ovalised", "pinched", "bent", "distortion"],
       "description": "Central bore is not a clean circle - one side pinched, dented inward or ovalised (out-of-round)."
     },
-    "Notch": {
+    "Nick": {
       "severity": 3,
       "color": [0, 220, 255],
-      "aliases": ["notch", "nick", "serration", "incomplete embossing", "square tab"],
+      "aliases": ["nick", "notch", "square tab", "nub"],
       "description": "A small raised nub, square tab, or bite/indentation breaking the smooth curve of an edge or the inner collar rim."
     },
-    "Rust": {
+    "Corrosion": {
       "severity": 2,
       "color": [30, 90, 160],
-      "aliases": ["rust", "discolor", "discoloration", "electroplat", "black mark", "line defect", "scratch"],
-      "description": "Brown/orange mottled corrosion or discoloration on the drawn wall or face."
+      "aliases": ["corrosion", "rust", "oxidation", "scratch"],
+      "description": "Brown/orange mottled corrosion or rust on the drawn wall or face."
     },
-    "Stain": {
+    "Discoloration": {
       "severity": 1,
       "color": [120, 120, 120],
-      "aliases": ["dark mark", "stain", "smudge", "burn"],
-      "description": "Discrete dark/black smudge or burn on the metal face; darker than surrounding metal and NOT a shadow."
+      "aliases": ["discoloration", "discolor", "stain", "dark mark", "smudge", "burn", "contamination"],
+      "description": "Discrete dark/discoloured smudge or burn on the metal face; darker than surrounding metal and NOT a shadow."
     },
-    "Reject Paint Mark": {
+    "Reject Mark": {
       "severity": 1,
       "color": [200, 0, 200],
-      "aliases": ["paint", "reject paint", "reject-marking"],
+      "aliases": ["reject mark", "reject paint mark", "paint", "reject paint", "reject-marking"],
       "description": "Deliberate red/pink inspection paint marking where an operator flagged a problem. Secondary marker - hunt the adjacent real defect."
     },
+
+    "Black Mark After Electroplating": {
+      "severity": 2,
+      "color": [40, 40, 220],
+      "aliases": ["black mark after electroplating", "black mark"],
+      "description": "Dark/black blemish left on the surface after the electroplating process."
+    },
+    "Electroplating Defect": {
+      "severity": 2,
+      "color": [0, 165, 255],
+      "aliases": ["electroplating defect", "electroplat", "plating defect"],
+      "description": "A flaw in the electroplated finish - uneven, pitted, blistered or missing plating."
+    },
+    "Incomplete Embossing": {
+      "severity": 3,
+      "color": [255, 90, 0],
+      "aliases": ["incomplete embossing", "embossing"],
+      "description": "Embossed feature is not fully formed - shallow, partial or missing impression."
+    },
+    "Line Defect": {
+      "severity": 2,
+      "color": [0, 220, 255],
+      "aliases": ["line defect", "line", "streak"],
+      "description": "A long straight line/streak flaw across the surface."
+    },
+    "Serration": {
+      "severity": 3,
+      "color": [200, 0, 200],
+      "aliases": ["serration", "serrated edge"],
+      "description": "Saw-tooth / jagged serrated deformation along an edge."
+    },
+
     "OK": {
       "severity": 0,
       "color": [0, 180, 0],
       "aliases": ["ok", "pass", "no defect"],
-      "description": "Smooth continuous outer flange, unbroken inner rim curve, round bore, no discrete dark mark, no missing material."
+      "description": "No defect present - the part passes inspection."
     }
   }
 }

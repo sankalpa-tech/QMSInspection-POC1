@@ -33,19 +33,19 @@ def primary_label(entry):
 # Corrections the user taught me (image -> the defect I originally MISSED/mis-marked).
 CORRECTIONS = {
     "IMG20260824162142": ("reject paint mark on bottom flange",
-                          "Stain",
+                          "Discoloration",
                           "Missed the dark boss mark on first pass; capture BOTH defects."),
     "IMG20260824162425": ("reject paint mark / rough inner-bore edge",
-                          "Cut / Chip",
+                          "Edge Chip",
                           "Missed the top-flange cut (same defect type as 162340); scan whole edge."),
     "IMG20260824161920": ("reject paint mark on inner wall",
-                          "Deformation",
+                          "Out-of-Round",
                           "Missed the pinched bore; the deformation is the primary (higher-severity) defect."),
     "IMG20260824161530": ("notch mask traced whole rim",
-                          "Notch",
+                          "Nick",
                           "edge-seg locked onto the bright rim; use a tiny tight box, no edge-seg."),
     "IMG20260824162340": ("boxed red paint + inner rim (edge-seg traced wrong contour)",
-                          "Cut / Chip",
+                          "Edge Chip",
                           "Paint is only the reject MARK; the real cut is the step on the outer flange silhouette nearby. Hunt the edge geometry, not the paint."),
 }
 
